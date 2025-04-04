@@ -1,0 +1,136 @@
+@mixin button-slider {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--black);
+
+
+    @media (max-width:768px) {
+        width: 32px;
+        height: 32px;
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 10px;
+        top: 50%;
+        left: 50%;
+        border-bottom: solid 2px var(--white);
+        border-left: solid 2px var(--white);
+        transform: translate(-50%, -50%);
+
+        @media (max-width:768px) {
+            width: 8px;
+            height: 8px;
+            border-bottom: solid 1px var(--white);
+            border-left: solid 1px var(--white);
+        }
+    }
+}
+
+@mixin arrow-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    & span {
+        width: 100%;
+        padding: 12px;
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 18px;
+        border-radius: 8px;
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+    }
+
+    &-svg {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+    }
+}
+
+@mixin schema-org {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    &> :first-child {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+@mixin switch {
+    &__switch {
+        position: relative;
+        display: inline-block;
+        width: 86px;
+        height: 40px;
+
+        & input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    &__slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: .4s;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: 50%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border-radius: 8px;
+            background-color: white;
+            transition: .4s;
+        }
+    }
+
+    &__labels {
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--black);
+        transform: translateY(-50%);
+        z-index: 1;
+    }
+}
+
+/* ui */
+
+@mixin button-hover {
+    transition: color ease-in-out .5s, backdrop-filter ease-in-out .5s, background ease-in-out .5s, outline ease-in-out .5s;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--white);
+        backdrop-filter: blur(2px);
+        background: rgba(255, 255, 255, 0.2);
+        outline: 1px solid var(--white);
+    }
+}
