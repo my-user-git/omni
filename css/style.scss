@@ -921,6 +921,8 @@ input {
             transition: transform 0.2s;
 
             & .section-conditions__arrow {
+                color: var(--white);
+                background-color: var(--black);
                 transform: rotate(0deg);
             }
         }
@@ -998,6 +1000,8 @@ input {
     &__arrow {
         width: 48px;
         height: 48px;
+        border-radius: 8px;
+        background-color: var(--light-gray);
         transform: rotate(90deg);
         transition: transform 0.2s;
 

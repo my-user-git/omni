@@ -1059,6 +1059,8 @@ input {
   transition: transform 0.2s;
 }
 .section-conditions__h2_active .section-conditions__arrow {
+  color: var(--white);
+  background-color: var(--black);
   transform: rotate(0deg);
 }
 .section-conditions__h3 {
@@ -1128,6 +1130,8 @@ input {
 .section-conditions__arrow {
   width: 48px;
   height: 48px;
+  border-radius: 8px;
+  background-color: var(--light-gray);
   transform: rotate(90deg);
   transition: transform 0.2s;
 }
