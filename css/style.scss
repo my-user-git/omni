@@ -479,7 +479,7 @@ input {
         column-gap: 20px;
 
         @media (max-width:1280px) {
-            grid-template-columns: 1fr 32.5%;
+            column-gap: 10px;
         }
     }
 
@@ -583,7 +583,7 @@ input {
 
     &__tabs {
         display: flex;
-        justify-content: stretch;
+        justify-content: flex-start;
         align-items: center;
         width: 100%;
         margin-bottom: 10px;
@@ -591,15 +591,15 @@ input {
 
         &-item {
             display: flex;
-            flex: 1;
-            justify-content: center;
+            flex-grow: 1;
+            justify-content: flex-start;
             height: 100%;
             background: var(--light-gray);
         }
 
         &-btn {
             position: relative;
-            padding: 12px 40px;
+            padding: 12px 39px;
             font-family: var(--font-family);
             font-weight: 500;
             font-size: 20px;
@@ -608,6 +608,7 @@ input {
             color: rgba(32, 32, 32, 0.4);
 
             @media (max-width:1280px) {
+                padding: 12px 31px;
                 font-size: 18px;
             }
 
@@ -820,27 +821,7 @@ input {
     &__consultation {
         @include arrow-buttons;
 
-        & span {
-            color: var(--black);
-            background-color: var(--light-gray);
-            transition: background-color ease-in-out .5s;
-        }
-
-        &-svg {
-            color: var(--black);
-            background-color: var(--light-gray);
-            transition: color ease-in-out .5s, background-color ease-in-out .5s;
-        }
-
-        &:hover span {
-            color: var(--white);
-            background-color: var(--black);
-        }
-
-        &:hover .section-card__consultation-svg {
-            color: var(--white);
-            background-color: var(--black);
-        }
+        @include arrow-hover(--black, --light-gray, --white, --black);
     }
 }
 
@@ -1301,14 +1282,7 @@ input {
         grid-area: button;
         @include arrow-buttons;
 
-        & span {
-            color: var(--white);
-            background: var(--black);
-        }
-
-        &-svg {
-            color: var(--black);
-        }
+        @include arrow-hover(--white, --black, --white, --grey-35);
     }
 }
 
@@ -1469,14 +1443,7 @@ input {
     &__button {
         @include arrow-buttons;
 
-        & span {
-            color: var(--white);
-            background: var(--black);
-        }
-
-        &-svg {
-            color: var(--black);
-        }
+        @include arrow-hover(--white, --black, --white, --grey-35);
 
         &:disabled {
             opacity: 0.8;

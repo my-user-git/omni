@@ -155,3 +155,28 @@
         outline: 1px solid var(--white);
     }
 }
+
+@mixin arrow-hover($color, $background, $color-hover, $background-hover) {
+    & span {
+        color: var(#{$color});
+        background-color: var(#{$background});
+        transition: background-color ease-in-out .5s;
+    }
+
+    &:hover span {
+        color: var(#{$color-hover});
+        background-color: var(#{$background-hover});
+    }
+
+    &-svg {
+        border-radius: 8px;
+        color: var(#{$color});
+        background-color: var(#{$background});
+        transition: background-color ease-in-out .5s, color ease-in-out .5s;
+    }
+
+    &:hover &-svg {
+        color: var(#{$color-hover});
+        background-color: var(#{$background-hover});
+    }
+}

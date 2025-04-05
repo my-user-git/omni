@@ -613,7 +613,8 @@ input {
 }
 @media (max-width: 1280px) {
   .section-card__content {
-    grid-template-columns: 1fr 32.5%;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
   }
 }
 .section-card__desc {
@@ -712,7 +713,7 @@ input {
 }
 .section-card__tabs {
   display: flex;
-  justify-content: stretch;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   margin-bottom: 10px;
@@ -720,14 +721,14 @@ input {
 }
 .section-card__tabs-item {
   display: flex;
-  flex: 1;
-  justify-content: center;
+  flex-grow: 1;
+  justify-content: flex-start;
   height: 100%;
   background: var(--light-gray);
 }
 .section-card__tabs-btn {
   position: relative;
-  padding: 12px 40px;
+  padding: 12px 39px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 20px;
@@ -737,6 +738,7 @@ input {
 }
 @media (max-width: 1280px) {
   .section-card__tabs-btn {
+    padding: 12px 31px;
     font-size: 18px;
   }
 }
@@ -970,14 +972,15 @@ input {
   background-color: var(--light-gray);
   transition: background-color ease-in-out 0.5s;
 }
-.section-card__consultation-svg {
-  color: var(--black);
-  background-color: var(--light-gray);
-  transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
-}
 .section-card__consultation:hover span {
   color: var(--white);
   background-color: var(--black);
+}
+.section-card__consultation-svg {
+  border-radius: 8px;
+  color: var(--black);
+  background-color: var(--light-gray);
+  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
 }
 .section-card__consultation:hover .section-card__consultation-svg {
   color: var(--white);
@@ -1497,10 +1500,22 @@ input {
 }
 .section-reviews__button span {
   color: var(--white);
-  background: var(--black);
+  background-color: var(--black);
+  transition: background-color ease-in-out 0.5s;
+}
+.section-reviews__button:hover span {
+  color: var(--white);
+  background-color: var(--grey-35);
 }
 .section-reviews__button-svg {
-  color: var(--black);
+  border-radius: 8px;
+  color: var(--white);
+  background-color: var(--black);
+  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
+}
+.section-reviews__button:hover .section-reviews__button-svg {
+  color: var(--white);
+  background-color: var(--grey-35);
 }
 
 /* section-help */
@@ -1678,10 +1693,22 @@ input {
 }
 .section-help__button span {
   color: var(--white);
-  background: var(--black);
+  background-color: var(--black);
+  transition: background-color ease-in-out 0.5s;
+}
+.section-help__button:hover span {
+  color: var(--white);
+  background-color: var(--grey-35);
 }
 .section-help__button-svg {
-  color: var(--black);
+  border-radius: 8px;
+  color: var(--white);
+  background-color: var(--black);
+  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
+}
+.section-help__button:hover .section-help__button-svg {
+  color: var(--white);
+  background-color: var(--grey-35);
 }
 .section-help__button:disabled {
   opacity: 0.8;
