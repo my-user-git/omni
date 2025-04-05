@@ -796,13 +796,16 @@ input {
         @include arrow-buttons;
 
         & span {
+            height: 48px;
             color: var(--white);
             background-color: var(--black);
             transition: background-color ease-in-out .5s;
         }
 
         &-svg {
-            transition: color ease-in-out .5s;
+            color: var(--white);
+            background-color: var(--black);
+            transition: color ease-in-out .5s, background-color ease-in-out .5s;
         }
 
         &:hover span {
@@ -810,7 +813,7 @@ input {
         }
 
         &:hover .section-card__request-svg {
-            color: var(--grey-35);
+            background-color: var(--grey-35);
         }
     }
 
@@ -820,6 +823,23 @@ input {
         & span {
             color: var(--black);
             background-color: var(--light-gray);
+            transition: background-color ease-in-out .5s;
+        }
+
+        &-svg {
+            color: var(--black);
+            background-color: var(--light-gray);
+            transition: color ease-in-out .5s, background-color ease-in-out .5s;
+        }
+
+        &:hover span {
+            color: var(--white);
+            background-color: var(--black);
+        }
+
+        &:hover .section-card__consultation-svg {
+            color: var(--white);
+            background-color: var(--black);
         }
     }
 }

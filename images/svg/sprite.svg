@@ -75,7 +75,8 @@
         <rect x="9" y="18" width="20" height="2" rx="1" fill="white" />
         <rect x="9" y="24" width="20" height="2" rx="1" fill="white" />
     </symbol>
-    <symbol id="x" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="x" width="29" height="29" viewBox="0 0 29 29" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
         <rect x="2.63623" width="37.2838" height="3.72838" transform="rotate(45 2.63623 0)"
             fill="white" />
         <rect y="26.3636" width="37.2838" height="3.72838" transform="rotate(-45 0 26.3636)"
@@ -146,9 +147,9 @@
     </symbol>
     <symbol id="arrow" width="48" height="48" viewBox="0 0 48 48" fill="none"
         xmlns="http://www.w3.org/2000/svg">
-        <rect width="48" height="48" rx="8" fill="#202020" />
-        <path d="M16 32L32 16M32 16H16M32 16V32" stroke="white" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" />
+        <!-- <rect width="48" height="48" rx="8" fill="currentColor" /> -->
+        <path d="M16 32L32 16M32 16H16M32 16V32" stroke="currentColor" stroke-width="2"
+            fill="currentColor" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
     <symbol id="search" width="17" height="18" viewBox="0 0 17 18" fill="none"
         xmlns="http://www.w3.org/2000/svg">

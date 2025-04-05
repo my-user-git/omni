@@ -925,18 +925,21 @@ input {
   border-radius: 8px;
 }
 .section-card__request span {
+  height: 48px;
   color: var(--white);
   background-color: var(--black);
   transition: background-color ease-in-out 0.5s;
 }
 .section-card__request-svg {
-  transition: color ease-in-out 0.5s;
+  color: var(--white);
+  background-color: var(--black);
+  transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
 }
 .section-card__request:hover span {
   background-color: var(--grey-35);
 }
 .section-card__request:hover .section-card__request-svg {
-  color: var(--grey-35);
+  background-color: var(--grey-35);
 }
 .section-card__consultation {
   display: flex;
@@ -965,6 +968,20 @@ input {
 .section-card__consultation span {
   color: var(--black);
   background-color: var(--light-gray);
+  transition: background-color ease-in-out 0.5s;
+}
+.section-card__consultation-svg {
+  color: var(--black);
+  background-color: var(--light-gray);
+  transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
+}
+.section-card__consultation:hover span {
+  color: var(--white);
+  background-color: var(--black);
+}
+.section-card__consultation:hover .section-card__consultation-svg {
+  color: var(--white);
+  background-color: var(--black);
 }
 
 /* section-conditions accordion */
