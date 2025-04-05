@@ -109,6 +109,11 @@ input {
         justify-content: flex-start;
         align-items: center;
         column-gap: 5px;
+        transition: transform ease-in-out .5s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
 
         @media (max-width:1495px) {
             column-gap: 3px;

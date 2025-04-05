@@ -144,6 +144,10 @@ input {
   align-items: center;
   -moz-column-gap: 5px;
        column-gap: 5px;
+  transition: transform ease-in-out 0.5s;
+}
+.header__logo:hover {
+  transform: scale(1.1);
 }
 @media (max-width: 1495px) {
   .header__logo {
