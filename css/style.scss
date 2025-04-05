@@ -300,19 +300,9 @@ input {
     }
 
 
-    @include switch;
-
-    &__labels {
-        @media (max-width:1495px) {
-            font-size: 14px;
-        }
-    }
+    @include switch(header);
 
     &__switch {
-        & input:checked+.header__slider:before {
-            transform: translateX(42px);
-        }
-
         @media (max-width:1280px) {
             grid-area: switch;
         }
@@ -1148,6 +1138,7 @@ input {
         position: relative;
         left: 0;
         @include button-slider;
+        margin-top: 0;
         transform: rotate(45deg);
     }
 
@@ -1155,6 +1146,7 @@ input {
         position: relative;
         right: 0;
         @include button-slider;
+        margin-top: 0;
         transform: rotate(-130deg);
     }
 }
@@ -1163,6 +1155,10 @@ input {
 
 .section-reviews {
     margin-bottom: 140px;
+
+    @media (max-width:1280px) {
+        margin-bottom: 100px;
+    }
 
     &__content {
         display: grid;
@@ -1181,6 +1177,14 @@ input {
         line-height: 100%;
         text-transform: uppercase;
         color: var(--black);
+
+        @media (max-width:1280px) {
+            height: 40px;
+        }
+
+        @media (max-width:768px) {
+            height: 24px;
+        }
     }
 
     &__all {
@@ -1189,9 +1193,13 @@ input {
         justify-content: flex-end;
         align-items: center;
         font-family: var(--font-family);
-        font-weight: 500;
+        font-weight: 600;
         font-size: 18px;
         color: var(--black);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
     }
 
     &__list {
@@ -1232,10 +1240,14 @@ input {
         display: inline-block;
         margin-bottom: 20px;
         font-family: var(--font-family);
-        font-weight: 500;
+        font-weight: 600;
         font-size: 20px;
         line-height: 100%;
         color: var(--black);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
     }
 
     &__text {
@@ -1244,6 +1256,14 @@ input {
         font-size: 18px;
         line-height: 90%;
         color: var(--gray);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:768px) {
+            font-size: 14px;
+        }
     }
 
     &__more {
@@ -1282,10 +1302,18 @@ input {
 
     &__wrap {
         grid-area: left;
-        padding: 80px 30px 80px 30px;
+        padding: 80px 30px 30px 30px;
         border-radius: 8px;
         background: url(../images/help-img.jpg) center center no-repeat transparent;
         background-size: cover;
+
+        @media (max-width:1280px) {
+            padding: 56px 28px 20px 30px;
+        }
+
+        @media (max-width:768px) {
+            padding: 40px 12px 20px 12px;
+        }
     }
 
     &__h2 {
@@ -1297,6 +1325,14 @@ input {
         line-height: 100%;
         text-transform: uppercase;
         color: var(--white);
+
+        @media (max-width:1280px) {
+            font-size: 40px;
+        }
+
+        @media (max-width:768px) {
+            font-size: 24px;
+        }
 
         &::before {
             position: absolute;
@@ -1317,6 +1353,15 @@ input {
         font-size: 18px;
         line-height: 100%;
         color: rgba(255, 255, 255, 0.8);
+
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:768px) {
+            font-size: 14px;
+        }
     }
 
     &__form {
@@ -1585,16 +1630,12 @@ input {
         background: var(--white);
     }
 
-    @include switch;
+    @include switch(footer);
 
     &__switch {
         grid-area: location;
         justify-self: flex-end;
         align-self: flex-end;
-
-        & input:checked+.footer__slider:before {
-            transform: translateX(42px);
-        }
     }
 
     &__work {
