@@ -49,7 +49,7 @@ const swiperMaybe = new Swiper('.section-maybe__slider', {
       slidesPerView: 1
     },
 
-    768: {
+    576: {
       slidesPerView: 3,
       spaceBetween: 10
     },

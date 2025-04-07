@@ -257,18 +257,6 @@ input {
             & .header__item::after {
                 background-color: var(--black);
             }
-
-            &::before {
-                position: absolute;
-                content: '';
-                top:-12px;
-                right: -19.5px;
-                bottom: -12px;;
-                left: -9.5px;
-                border-radius: 8px;
-                background: var(--white);
-                z-index: 1;
-            }
         }
     }
 
@@ -281,6 +269,7 @@ input {
     }
 
     &__link {
+        position: relative;
         font-family: var(--font-family);
         font-weight: 400;
         font-size: 18px;
@@ -288,15 +277,33 @@ input {
         color: var(--white);
         transition: color ease-in-out .5s;
 
-
-        @media (max-width:1495px) {
-            font-size: 16px;
-        }
-
         &:hover,
         &:focus,
         &:active {
             color: rgba(255, 255, 255, 0.7);
+        }
+
+        &-active {
+            color: var(--black) !important;
+            z-index: 2;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: -12px;
+                right: -19.5px;
+                bottom: -12px;
+                ;
+                left: -9.5px;
+                border-radius: 8px;
+                background: var(--white);
+                z-index: 1;
+            }
+        }
+
+
+        @media (max-width:1495px) {
+            font-size: 16px;
         }
     }
 
@@ -430,7 +437,16 @@ input {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 135px 30px;
         object-fit: contain;
+
+        @media (max-width:1280px) {
+            padding: 103px 30px;
+        }
+
+        @media (max-width:992px) {
+            padding: 63px 30px;
+        }
 
         &-img {
             display: block;
@@ -547,6 +563,13 @@ input {
 
         @media (max-width:1280px) {
             column-gap: 10px;
+        }
+
+        @media (max-width:890px) {
+            grid-template-areas:
+                "price"
+                "desc";
+            grid-template-columns: 1fr;
         }
     }
 
@@ -813,7 +836,6 @@ input {
             font-weight: 400;
             font-size: 20px;
             line-height: 90%;
-            text-align: center;
             color: var(--gray);
 
             @media (max-width:1280px) {
@@ -1120,6 +1142,14 @@ input {
         line-height: 100%;
         text-transform: uppercase;
         color: var(--black);
+
+        @media (max-width:1280px) {
+            font-size: 40px;
+        }
+
+        @media (max-width:780px) {
+            font-size: 24px;
+        }
     }
 
     &__h3 {
@@ -1132,6 +1162,10 @@ input {
 
         @media (max-width:1280px) {
             font-size: 18px;
+        }
+
+        @media (max-width:768px) {
+            font-size: 16px;
         }
     }
 
@@ -1162,11 +1196,13 @@ input {
     }
 
     &__picture {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 325px;
         margin-bottom: 10px;
-        padding: 41px 0;
+        padding: 41px 20px;
         border-radius: 8px;
         background: var(--light-gray);
 
@@ -1177,6 +1213,15 @@ input {
         @media (max-width:768px) {
             height: 186px;
         }
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     &__list {
@@ -1202,6 +1247,10 @@ input {
 
             @media (max-width:1280px) {
                 font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 14px;
             }
         }
     }
@@ -1279,6 +1328,12 @@ input {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 20px;
+
+        @media (max-width:768px) {
+            grid-template-columns: 1fr;
+            column-gap: 0;
+            row-gap: 10px;
+        }
     }
 
     &__item {
@@ -1286,17 +1341,28 @@ input {
         grid-template-areas:
             "picture desc"
             "picture more";
-        grid-template-columns: min-content 1fr;
+        grid-template-columns: 77px 1fr;
         column-gap: 20px;
         row-gap: 10px;
         height: auto;
         padding: 20px;
         border-radius: 8px;
         background: var(--light-gray);
+
+        @media (max-width:768px) {
+            grid-template-columns: 57px 1fr;
+        }
     }
 
     &__picture {
         grid-area: picture;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     &__desc {
@@ -1307,10 +1373,13 @@ input {
         grid-area: more;
     }
 
+    &__author {
+        margin-bottom: 20px;
+    }
+
     &__person,
     &__company {
         display: inline-block;
-        margin-bottom: 20px;
         font-family: var(--font-family);
         font-weight: 600;
         font-size: 20px;
@@ -1361,12 +1430,19 @@ input {
     &__content {
         display: grid;
         grid-template-areas:
-            "left form";
+            "picture form";
         grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width:768px) {
+            grid-template-areas:
+                "picture"
+                "form";
+            grid-template-columns: 1fr;
+        }
     }
 
     &__wrap {
-        grid-area: left;
+        grid-area: picture;
         padding: 80px 30px 30px 30px;
         border-radius: 8px;
         background: url(../images/help-img.jpg) center center no-repeat transparent;
@@ -1402,7 +1478,7 @@ input {
         &::before {
             position: absolute;
             content: '';
-            top: -50px;
+            top: -30px;
             left: 0;
             width: 20px;
             height: 20px;
@@ -1431,12 +1507,18 @@ input {
 
     &__form {
         grid-area: form;
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-        padding: 51px 94px;
+        display: grid;
+        grid-template-columns: 1fr minmax(auto, 77.5%) 1fr;
+        padding: 51px 15px;
         border-radius: 8px;
         background: var(--light-gray);
+
+        &-wrap {
+            grid-area: 1 /2 / 2 /3;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+        }
     }
 
     &__input {
@@ -1532,7 +1614,7 @@ input {
             "logo . organization subnav button"
             "search . organization subnav ."
             "badge . nav subnav location"
-            "social . . . work"
+            "social . . work work"
             "info info info info info"
             "madein . copyright privacy privacy ";
         grid-template-columns: min-content 1fr 15.19% 15.19% 15.57%;
@@ -1544,13 +1626,18 @@ input {
     &__logo {
         grid-area: logo;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         column-gap: 5px;
 
         &-svg {
             width: 117px;
             height: 44px;
+
+            @media (max-width:1280px) {
+                width: 69px;
+                height: 26px;
+            }
         }
 
         &-text {
@@ -1559,6 +1646,10 @@ input {
             font-size: 12px;
             line-height: 90%;
             color: var(--white);
+
+            @media (max-width:1280px) {
+                font-size: 10px;
+            }
         }
     }
 
@@ -1579,6 +1670,11 @@ input {
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.1);
 
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
         &-svg {
             position: absolute;
             top: 50%;
@@ -1593,6 +1689,10 @@ input {
             font-weight: 400;
             font-size: 18px;
             color: var(--white);
+
+            @media (max-width:1280px) {
+                font-size: 16px;
+            }
         }
     }
 
@@ -1610,6 +1710,14 @@ input {
         font-size: 18px;
         line-height: 90%;
         color: var(--white);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:768px) {
+            font-size: 14px;
+        }
 
         & span {
             display: block;
@@ -1643,6 +1751,14 @@ input {
             font-size: 18px;
             line-height: 90%;
             color: rgba(255, 255, 255, 0.7);
+
+            @media (max-width:1280px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 14px;
+            }
         }
     }
 
@@ -1658,6 +1774,14 @@ input {
             font-size: 18px;
             line-height: 90%;
             color: rgba(255, 255, 255, 0.7);
+
+            @media (max-width:1280px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 14px;
+            }
         }
     }
 
@@ -1686,6 +1810,14 @@ input {
         color: var(--black);
         border-radius: 8px;
         background: var(--white);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:1280px) {
+            font-size: 14px;
+        }
     }
 
     @include switch(footer);
@@ -1705,6 +1837,14 @@ input {
         font-size: 18px;
         line-height: 90%;
         color: rgba(255, 255, 255, 0.4);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:1280px) {
+            font-size: 14px;
+        }
     }
 
     &__info-svg {
@@ -1720,6 +1860,14 @@ input {
         font-size: 18px;
         line-height: 90%;
         color: rgba(255, 255, 255, 0.4);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:1280px) {
+            font-size: 14px;
+        }
     }
 
     &__copyright {
@@ -1729,6 +1877,14 @@ input {
         font-size: 18px;
         line-height: 90%;
         color: rgba(255, 255, 255, 0.4);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:1280px) {
+            font-size: 14px;
+        }
     }
 
     &__privacy {
@@ -1738,5 +1894,13 @@ input {
         font-size: 18px;
         line-height: 90%;
         color: rgba(255, 255, 255, 0.4);
+
+        @media (max-width:1280px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:1280px) {
+            font-size: 14px;
+        }
     }
 }
