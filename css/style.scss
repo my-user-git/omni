@@ -663,12 +663,13 @@ input {
 
     &__picture {
         margin-bottom: 30px;
-        object-fit: contain;
     }
 
     &__img {
-        height: auto;
+        display: block;
         width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     &__tabs {
@@ -909,6 +910,10 @@ input {
 
     &__consultation {
         @include arrow-buttons;
+
+        & span {
+            height: 48px;
+        }
 
         @include arrow-hover(--black, --light-gray, --white, --black);
     }
@@ -1433,7 +1438,7 @@ input {
             "picture form";
         grid-template-columns: repeat(2, 1fr);
 
-        @media (max-width:768px) {
+        @media (max-width:576px) {
             grid-template-areas:
                 "picture"
                 "form";
@@ -1442,19 +1447,35 @@ input {
     }
 
     &__wrap {
+        position: relative;
         grid-area: picture;
         padding: 80px 30px 30px 30px;
         border-radius: 8px;
-        background: url(../images/help-img.jpg) center center no-repeat transparent;
-        background-size: cover;
+        overflow: hidden;
 
         @media (max-width:1280px) {
             padding: 56px 28px 20px 30px;
         }
 
-        @media (max-width:768px) {
+        @media (max-width:576px) {
+            height: 188px;
             padding: 40px 12px 20px 12px;
         }
+    }
+
+    &__picture {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     &__h2 {
@@ -1488,6 +1509,7 @@ input {
     }
 
     &__desc {
+        position: relative;
         width: 68%;
         font-family: var(--font-family);
         font-weight: 400;
@@ -1512,6 +1534,12 @@ input {
         padding: 51px 15px;
         border-radius: 8px;
         background: var(--light-gray);
+
+
+        @media (max-width:576px) {
+            grid-template-columns: 1fr;
+            padding: 12px;
+        }
 
         &-wrap {
             grid-area: 1 /2 / 2 /3;
@@ -1618,17 +1646,41 @@ input {
             "info info info info info"
             "madein . copyright privacy privacy ";
         grid-template-columns: min-content 1fr 15.19% 15.19% 15.57%;
-        grid-template-rows: min-content min-content min-content min-content max-content min-content;
+        grid-template-rows: min-content 1fr 1fr min-content max-content min-content;
         column-gap: 20px;
         row-gap: 10.65px;
+
+        @media (max-width:576px) {
+            grid-template-areas:
+                "logo logo"
+                "search search"
+                "button button"
+                "organization subnav"
+                "nav subnav"
+                "badge badge"
+                "social location"
+                "work work"
+                "info info"
+                "copyright privacy"
+                "madein madein";
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 10px;
+            row-gap: 10px;
+            grid-template-rows: auto;
+        }
     }
 
     &__logo {
         grid-area: logo;
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         column-gap: 5px;
+
+        @media (max-width:576px) {
+            justify-content: center;
+            margin-bottom: 14px;
+        }
 
         &-svg {
             width: 117px;
@@ -1659,17 +1711,20 @@ input {
             grid-area: search;
             display: flex;
             align-self: flex-start;
+            padding: 12px 12px 12px 42px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+
+            @media (max-width:576px) {
+                justify-self: center;
+            }
 
         }
 
-        padding: 12px 12px 12px 42px;
         font-family: var(--font-family);
         font-weight: 400;
         font-size: 18px;
         color: var(--white);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
-
 
         @media (max-width:1280px) {
             font-size: 16px;
@@ -1698,6 +1753,11 @@ input {
 
     &__badge {
         grid-area: badge;
+
+        @media (max-width:768px) {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
     }
 
     &__organization {
@@ -1736,8 +1796,6 @@ input {
         @include schema-org;
         margin-bottom: 24px;
     }
-
-
 
     &__nav {
         grid-area: nav;
@@ -1815,7 +1873,8 @@ input {
             font-size: 16px;
         }
 
-        @media (max-width:1280px) {
+        @media (max-width:768px) {
+            margin-bottom: 20px;
             font-size: 14px;
         }
     }
@@ -1842,7 +1901,9 @@ input {
             font-size: 16px;
         }
 
-        @media (max-width:1280px) {
+        @media (max-width:768px) {
+            justify-self: flex-start;
+            margin-bottom: 10px;
             font-size: 14px;
         }
     }
@@ -1851,6 +1912,11 @@ input {
         grid-area: info;
         width: 100%;
         height: 182px;
+
+        @media (max-width:1280px) {
+            height: 43px;
+            margin-bottom: 12px;
+        }
     }
 
     &__madein {
@@ -1865,8 +1931,12 @@ input {
             font-size: 16px;
         }
 
-        @media (max-width:1280px) {
+        @media (max-width:768px) {
             font-size: 14px;
+        }
+
+        @media (max-width:576px) {
+            margin-top: 10px;
         }
     }
 
