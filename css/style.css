@@ -858,15 +858,6 @@ input {
     display: none;
   }
 }
-.section-card__tabs-item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: flex-start;
-  height: 100%;
-  background: var(--light-gray);
-}
 .section-card__tabs-btn {
   position: relative;
   padding: 12px 39px;
