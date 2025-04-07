@@ -138,6 +138,13 @@ input {
     grid-template-columns: max-content 1fr max-content;
   }
 }
+@media (max-width: 576px) {
+  .header__content {
+    grid-template-areas: "logo burger";
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: 1fr;
+  }
+}
 .header__logo {
   display: flex;
   justify-content: flex-start;
@@ -266,7 +273,7 @@ input {
 .header__item {
   position: relative;
 }
-.header__item:not(:last-child)::after {
+.header__item:not(:last-child) .header__link::after {
   position: absolute;
   content: "";
   top: 60%;
@@ -277,6 +284,10 @@ input {
   background-color: var(--white);
   transform: translateY(-60%);
   z-index: 2;
+  transition: background-color ease-in-out 0.5s;
+}
+.header__item:not(:last-child) .header__link.header__link-active::after {
+  background-color: var(--black);
 }
 .header__item-active {
   position: relative;
@@ -319,8 +330,8 @@ input {
   bottom: -12px;
   left: -9.5px;
   border-radius: 8px;
-  background: var(--white);
-  z-index: 1;
+  background-color: var(--white);
+  z-index: -1;
 }
 @media (max-width: 1495px) {
   .header__link {
@@ -363,6 +374,11 @@ input {
     display: flex;
   }
 }
+@media (max-width: 576px) {
+  .header__tel {
+    display: none;
+  }
+}
 .header__button {
   margin-right: 20px;
   padding: 12px;
@@ -398,6 +414,11 @@ input {
   .header__button {
     display: flex;
     justify-self: center;
+  }
+}
+@media (max-width: 576px) {
+  .header__button {
+    display: none;
   }
 }
 .header__switch {
@@ -467,6 +488,11 @@ input {
 @media (max-width: 1280px) {
   .header__switch {
     grid-area: switch;
+  }
+}
+@media (max-width: 576px) {
+  .header__switch {
+    display: none;
   }
 }
 .header__item-x {
@@ -792,15 +818,34 @@ input {
      object-fit: contain;
 }
 .section-card__tabs {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  position: relative;
+  display: grid;
+  grid-template-areas: "button1 button2 button3" "article article article";
+  grid-template-columns: auto auto auto;
+  grid-template-rows: min-content 1fr;
   width: 100%;
-  margin-bottom: 10px;
+  row-gap: 10px;
+}
+@media (max-width: 576px) {
+  .section-card__tabs {
+    grid-template-areas: "button1" "article4" "button2" "article5" "button3" "article6";
+    grid-template-columns: 1fr;
+  }
+}
+.section-card__tabs-bg {
+  grid-area: 1/1/2/4;
   border-radius: 8px;
+  background: var(--light-gray);
+}
+@media (max-width: 576px) {
+  .section-card__tabs-bg {
+    display: none;
+  }
 }
 .section-card__tabs-item {
+  position: relative;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   justify-content: flex-start;
   height: 100%;
@@ -815,6 +860,16 @@ input {
   line-height: 90%;
   text-align: center;
   color: rgba(32, 32, 32, 0.4);
+  z-index: 1;
+}
+.section-card__tabs-btn:nth-child(1) {
+  grid-area: button1;
+}
+.section-card__tabs-btn:nth-child(2) {
+  grid-area: button2;
+}
+.section-card__tabs-btn:nth-child(3) {
+  grid-area: button3;
 }
 @media (max-width: 1280px) {
   .section-card__tabs-btn {
@@ -838,6 +893,19 @@ input {
   background-color: rgba(32, 32, 32, 0.4);
   transform: translateY(-50%);
 }
+@media (max-width: 576px) {
+  .section-card__tabs-btn {
+    text-align: left;
+    padding-left: 44px;
+    font-weight: 600;
+    color: var(--black);
+    border-radius: 8px;
+    background: var(--light-gray);
+  }
+  .section-card__tabs-btn span::before {
+    background: var(--black);
+  }
+}
 .section-card__tabs-btn_active {
   color: var(--white);
   border-radius: 8px;
@@ -854,6 +922,30 @@ input {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+.section-card__article:nth-child(4) {
+  grid-area: article;
+}
+@media (max-width: 576px) {
+  .section-card__article:nth-child(4) {
+    grid-area: article4;
+  }
+}
+.section-card__article:nth-child(5) {
+  grid-area: article;
+}
+@media (max-width: 576px) {
+  .section-card__article:nth-child(5) {
+    grid-area: article5;
+  }
+}
+.section-card__article:nth-child(6) {
+  grid-area: article;
+}
+@media (max-width: 576px) {
+  .section-card__article:nth-child(6) {
+    grid-area: article6;
+  }
 }
 .section-card__article_active {
   display: flex;
@@ -1327,7 +1419,7 @@ input {
 }
 @media (max-width: 768px) {
   .section-maybe__slider {
-    height: 370px;
+    height: 416px;
   }
 }
 .section-maybe__slide {
@@ -1360,7 +1452,7 @@ input {
 }
 @media (max-width: 768px) {
   .section-maybe__picture {
-    height: 186px;
+    height: 237px;
   }
 }
 .section-maybe__img {

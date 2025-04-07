@@ -102,6 +102,13 @@ input {
                 "tel button switch";
             grid-template-columns: max-content 1fr max-content;
         }
+
+        @media (max-width:576px) {
+            grid-template-areas:
+                "logo burger";
+            grid-template-columns: repeat(2, 1fr);
+            grid-row: 1fr;
+        }
     }
 
     &__logo {
@@ -232,17 +239,24 @@ input {
     &__item {
         position: relative;
 
-        &:not(:last-child)::after {
-            position: absolute;
-            content: '';
-            top: 60%;
-            right: -10px;
-            width: 5px;
-            height: 5px;
-            border-radius: 60%;
-            background-color: var(--white);
-            transform: translateY(-60%);
-            z-index: 2;
+        &:not(:last-child) .header__link {
+            &::after {
+                position: absolute;
+                content: '';
+                top: 60%;
+                right: -10px;
+                width: 5px;
+                height: 5px;
+                border-radius: 60%;
+                background-color: var(--white);
+                transform: translateY(-60%);
+                z-index: 2;
+                transition: background-color ease-in-out .5s;
+            }
+
+            &.header__link-active::after {
+                background-color: var(--black);
+            }
         }
 
         &-active {
@@ -293,14 +307,12 @@ input {
                 top: -12px;
                 right: -19.5px;
                 bottom: -12px;
-                ;
                 left: -9.5px;
                 border-radius: 8px;
-                background: var(--white);
-                z-index: 1;
+                background-color: var(--white);
+                z-index: -1;
             }
         }
-
 
         @media (max-width:1495px) {
             font-size: 16px;
@@ -345,6 +357,10 @@ input {
                 display: flex;
             }
         }
+
+        @media (max-width:576px) {
+            display: none;
+        }
     }
 
     &__button {
@@ -371,6 +387,10 @@ input {
             display: flex;
             justify-self: center;
         }
+
+        @media (max-width:576px) {
+            display: none;
+        }
     }
 
 
@@ -379,6 +399,10 @@ input {
     &__switch {
         @media (max-width:1280px) {
             grid-area: switch;
+        }
+
+        @media (max-width:576px) {
+            display: none;
         }
     }
 
@@ -673,15 +697,41 @@ input {
     }
 
     &__tabs {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        position: relative;
+        display: grid;
+        grid-template-areas:
+            "button1 button2 button3"
+            "article article article";
+        grid-template-columns: auto auto auto;
+        grid-template-rows: min-content 1fr;
         width: 100%;
-        margin-bottom: 10px;
-        border-radius: 8px;
+        row-gap: 10px;
+
+        @media (max-width:576px) {
+            grid-template-areas:
+                "button1"
+                "article4"
+                "button2"
+                "article5"
+                "button3"
+                "article6";
+            grid-template-columns: 1fr;
+        }
+
+        &-bg {
+            grid-area: 1 /1 / 2 / 4;
+            border-radius: 8px;
+            background: var(--light-gray);
+
+            @media (max-width:576px) {
+                display: none;
+            }
+        }
 
         &-item {
+            position: relative;
             display: flex;
+            flex-direction: column;
             flex-grow: 1;
             justify-content: flex-start;
             height: 100%;
@@ -697,6 +747,19 @@ input {
             line-height: 90%;
             text-align: center;
             color: rgba(32, 32, 32, 0.4);
+            z-index: 1;
+
+            &:nth-child(1) {
+                grid-area: button1;
+            }
+
+            &:nth-child(2) {
+                grid-area: button2;
+            }
+
+            &:nth-child(3) {
+                grid-area: button3;
+            }
 
             @media (max-width:1280px) {
                 padding: 12px 31px;
@@ -720,6 +783,19 @@ input {
 
             }
 
+            @media (max-width:576px) {
+                text-align: left;
+                padding-left: 44px;
+                font-weight: 600;
+                color: var(--black);
+                border-radius: 8px;
+                background: var(--light-gray);
+
+                & span::before {
+                    background: var(--black);
+                }
+            }
+
             &_active {
                 color: var(--white);
                 border-radius: 8px;
@@ -741,6 +817,30 @@ input {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+
+        &:nth-child(4) {
+            grid-area: article;
+
+            @media (max-width:576px) {
+                grid-area: article4;
+            }
+        }
+
+        &:nth-child(5) {
+            grid-area: article;
+
+            @media (max-width:576px) {
+                grid-area: article5;
+            }
+        }
+
+        &:nth-child(6) {
+            grid-area: article;
+
+            @media (max-width:576px) {
+                grid-area: article6;
+            }
+        }
 
         &_active {
             display: flex;
@@ -1182,7 +1282,7 @@ input {
         }
 
         @media (max-width:768px) {
-            height: 370px;
+            height: 416px;
         }
     }
 
@@ -1216,7 +1316,7 @@ input {
         }
 
         @media (max-width:768px) {
-            height: 186px;
+            height: 237px;
         }
     }
 
