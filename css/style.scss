@@ -191,6 +191,10 @@ input {
             background-color: rgba(0, 0, 0, 0.9);
             z-index: 4;
 
+            @media (max-width:576px) {
+                top: 67px;
+            }
+
             & .header__list {
                 display: flex;
                 flex-direction: column;
@@ -578,6 +582,14 @@ input {
 .section-card {
     margin-bottom: 100px;
 
+    @media (max-width:1280px) {
+        margin-bottom: 80px;
+    }
+
+    @media (max-width:780px) {
+        margin-bottom: 60px;
+    }
+
     &__content {
         display: grid;
         grid-template-areas:
@@ -594,6 +606,7 @@ input {
                 "price"
                 "desc";
             grid-template-columns: 1fr;
+            row-gap: 20px;
         }
     }
 
@@ -1218,6 +1231,14 @@ input {
 .section-maybe {
     margin-bottom: 140px;
 
+    @media (max-width:1280px) {
+        margin-bottom: 80px;
+    }
+
+    @media (max-width:780px) {
+        margin-bottom: 60px;
+    }
+
     &__title {
         display: flex;
         justify-content: space-between;
@@ -1531,6 +1552,14 @@ input {
 
 .section-help {
     margin-bottom: 100px;
+
+    @media (max-width:1280px) {
+        margin-bottom: 80px;
+    }
+
+    @media (max-width:780px) {
+        margin-bottom: 60px;
+    }
 
     &__content {
         display: grid;

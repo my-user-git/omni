@@ -232,6 +232,11 @@ input {
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 4;
 }
+@media (max-width: 576px) {
+  .header__menu-active {
+    top: 67px;
+  }
+}
 .header__menu-active .header__list {
   display: flex;
   flex-direction: column;
@@ -703,6 +708,16 @@ input {
 .section-card {
   margin-bottom: 100px;
 }
+@media (max-width: 1280px) {
+  .section-card {
+    margin-bottom: 80px;
+  }
+}
+@media (max-width: 780px) {
+  .section-card {
+    margin-bottom: 60px;
+  }
+}
 .section-card__content {
   display: grid;
   grid-template-areas: "desc price";
@@ -720,6 +735,7 @@ input {
   .section-card__content {
     grid-template-areas: "price" "desc";
     grid-template-columns: 1fr;
+    row-gap: 20px;
   }
 }
 .section-card__desc {
@@ -1350,6 +1366,16 @@ input {
 .section-maybe {
   margin-bottom: 140px;
 }
+@media (max-width: 1280px) {
+  .section-maybe {
+    margin-bottom: 80px;
+  }
+}
+@media (max-width: 780px) {
+  .section-maybe {
+    margin-bottom: 60px;
+  }
+}
 .section-maybe__title {
   display: flex;
   justify-content: space-between;
@@ -1748,6 +1774,16 @@ input {
 /* section-help */
 .section-help {
   margin-bottom: 100px;
+}
+@media (max-width: 1280px) {
+  .section-help {
+    margin-bottom: 80px;
+  }
+}
+@media (max-width: 780px) {
+  .section-help {
+    margin-bottom: 60px;
+  }
 }
 .section-help__content {
   display: grid;
